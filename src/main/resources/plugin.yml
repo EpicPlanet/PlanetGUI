@@ -1,0 +1,6 @@
+name: ${project.name}
+version: ${project.version}
+description: ${project.description}
+author: ${project.organization.name}
+website: ${project.url}
+main: ${project.groupId}.planetgui.PlanetGUI
