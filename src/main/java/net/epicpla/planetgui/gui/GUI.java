@@ -22,41 +22,29 @@
  * THE SOFTWARE.
  */
 
-package net.epicpla.planetgui;
+package net.epicpla.planetgui.gui;
 
-import net.epicpla.planetgui.gui.GUI;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.event.Event;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
+import org.bukkit.inventory.InventoryView;
 
-import java.util.HashMap;
-import java.util.Map;
+public interface GUI {
 
-public class PlanetGUI extends JavaPlugin {
+    InventoryView getView();
+    Player getPlayer();
 
-    private static PlanetGUI instance;
-    private static Map<Player, GUI> openGUIs = new HashMap<>();
+    // 이벤트
+    void onClick(InventoryClickEvent event);
+    void onDrag(InventoryDragEvent event);
+    void onClose(InventoryCloseEvent event);
 
-    @Override
-    public void onEnable() {
-        getServer().getPluginManager().registerEvents(new PlanetGUIListener(), this);
-        instance = this;
-    }
+    // 다른 이벤트들이 발생했을 때 호출됨
+    void onEvent(Event event);
 
-    public static PlanetGUI getInstance() {
-        return instance;
-    }
-
-    public static boolean isGUI(Player player) {
-        return openGUIs.containsKey(player);
-    }
-
-    public static GUI getGUI(Player player) {
-        return openGUIs.get(player);
-    }
-
-    // For Internal Uses
-    public static GUI setGUI(Player player, GUI gui) {
-        return openGUIs.put(player, gui);
-    }
+    // 강제로 GUI가 닫힐 때 발생(서버가 꺼지거나 플레이어가 나가는 등)
+    void forceClose();
 
 }
