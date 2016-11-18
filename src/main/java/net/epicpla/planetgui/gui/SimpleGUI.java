@@ -42,9 +42,9 @@ public abstract class SimpleGUI implements GUI {
     private boolean open;
     private boolean locked = false;
 
-    public SimpleGUI(Player player, int size) {
+    public SimpleGUI(Player player, int size, String title) {
         this.player = player;
-        Inventory inventory = Bukkit.createInventory(null, size);
+        Inventory inventory = Bukkit.createInventory(null, size, title);
         render();
         view = player.openInventory(inventory);
         open = true;
