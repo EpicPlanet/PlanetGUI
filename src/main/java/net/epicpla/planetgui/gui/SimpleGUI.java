@@ -45,10 +45,10 @@ public abstract class SimpleGUI implements GUI {
     public SimpleGUI(Player player, int size, String title) {
         this.player = player;
         Inventory inventory = Bukkit.createInventory(null, size, title);
-        render();
         view = player.openInventory(inventory);
         open = true;
         PlanetGUI.setGUI(player, this);
+        render();
     }
 
     public abstract void render();

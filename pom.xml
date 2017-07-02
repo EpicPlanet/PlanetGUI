@@ -30,7 +30,7 @@
 
     <groupId>net.epicpla</groupId>
     <artifactId>planetgui</artifactId>
-    <version>0.2</version>
+    <version>0.3</version>
     <packaging>jar</packaging>
 
     <name>PlanetGUI</name>
@@ -96,8 +96,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <github.global.server>github</github.global.server>
-        <minecraftVersion>1.10.2</minecraftVersion>
-        <bukkitVersion>1.10.2-R0.1-SNAPSHOT</bukkitVersion>
+        <minecraftVersion>1.12</minecraftVersion>
+        <bukkitVersion>1.12-R0.1-SNAPSHOT</bukkitVersion>
     </properties>
 
     <dependencies>
